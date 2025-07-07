@@ -1,1 +1,1 @@
-# rsschool-cv
+https://ImbaSharikAnirum.github.io/rsschool-cv/cv
