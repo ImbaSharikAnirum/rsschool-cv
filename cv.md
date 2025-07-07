@@ -1,5 +1,5 @@
 # Igor Sharin
-![Avatar](./assets/avatar.jpg)
+![Photo](./assets/photo.jpg)
 
 ## Contacts
 * **Phone**: +7(996)-316-38-50
