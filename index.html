@@ -45,7 +45,7 @@
                     reducerPath: "creation",
                     baseQuery: fetchBaseQuery({
                         baseUrl: API,
-                        prepareHeaders: (headers, { getState }) => {
+                        prepareHeaders: (headers, { getState }) =&gt; {
                         const token = selectJwt(getState());
                         if (token) {
                             headers.set("authorization", `Bearer ${token}`);
@@ -54,10 +54,10 @@
                         },
                     }),
                     tagTypes: ["creation"],
-                    endpoints: (builder) => ({
+                    endpoints: (builder) =&gt; ({
                         getCreations: builder.query({
-                        query: ({ userId, page = 1 } = {}) => {
-                            let url = `/creations?pagination[page]=${page}&pagination[pageSize]=30&populate[image]=*&sort=publishedAt:desc`;
+                        query: ({ userId, page = 1 } = {}) =&gt; {
+                            let url = `/creations?pagination[page]=${page}&amp;pagination[pageSize]=30&amp;populate[image]=*&amp;sort=publishedAt:desc`;
                             if (userId) {
                             url += `&filters[users_permissions_user][id][$eq]=${userId}`;
                             }
