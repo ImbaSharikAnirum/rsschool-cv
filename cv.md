@@ -4,9 +4,8 @@
 ## Contacts
 * **Phone**: +7(996)-316-38-50
 * **Email**: sharinigor1@gmail.com
-* **GitHub**: [imbasharikanirum](https://github.com/ImbaSharikAnirum)
-* **Linkedin**: [IgorSharin](https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin)
-* **Discord**: igor_sharin
+* **GitHub**: [https://github.com/ImbaSharikAnirum](https://github.com/ImbaSharikAnirum)
+* **Linkedin**: [www.linkedin.com/in/igor-sharin](https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin)
 * **Telegram**: @igor_sharin
 
 ## About Me
