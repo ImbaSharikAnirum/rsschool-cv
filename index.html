@@ -59,7 +59,7 @@
                         query: ({ userId, page = 1 } = {}) =&gt; {
                             let url = `/creations?pagination[page]=${page}&amp;pagination[pageSize]=30&amp;populate[image]=*&amp;sort=publishedAt:desc`;
                             if (userId) {
-                            url += `&filters[users_permissions_user][id][$eq]=${userId}`;
+                            url += `&amp;filters[users_permissions_user][id][$eq]=${userId}`;
                             }
                             return { url, method: "GET" };
                         },
