@@ -8,13 +8,30 @@
     <title>CV</title>
 </head>
 <body>
-    <div>
-        <main>
-            <div>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+                    <li class="nav-item"><a href="#about-me" class="nav-link">About Me</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#code-example" class="nav-link">Code Example</a></li>
+                    <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+                    <li class="nav-item"><a href="#languages" class="nav-link">Languages</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container main-container section">
+            <section class="profile" id="profile">
                 <h1>Igor Sharin</h1>
-                <img src="./assets/photo.jpg" alt="photo">
-            </div>
-            <section>
+                <div class="avatar-wrapper">
+                    <img src="./assets/photo.jpg" alt="Avatar" class="avatar-image" />
+                </div>
+            </section>
+            <br>
+            <section class="contacts" id="contacts">
                 <h2>Contacts</h2>
                 <ul>
                     <li><span>Phone:</span>&nbsp;+7(996)-316-38-50</li>
@@ -24,11 +41,13 @@
                     <li><span>Telegram:</span>&nbsp;@igor_sharin</li>
                 </ul>
             </section>
-             <section>
-                  <h2>About Me</h2>
-                  <p>I started programming on my own and now I want to build a strong foundation of knowledge to confidently write clean and understandable code. For me, it's important not just to know the syntax but to apply best practices and architectural solutions. I also plan to improve my understanding of algorithms and data structures to create efficient solutions.</p>
-             </section>
-              <section>
+            <br>
+            <section class="about-me" id="about-me">
+                <h2>About Me</h2>
+                <p>I started programming on my own and now I want to build a strong foundation of knowledge to confidently write clean and understandable code. For me, it's important not just to know the syntax but to apply best practices and architectural solutions. I also plan to improve my understanding of algorithms and data structures to create efficient solutions.</p>
+            </section>
+            <br>
+            <section class="skills" id="skills">
                 <h2>Skills</h2>
                 <ul>
                     <li>React, Redux, Material UI (MUI), Bootstrap, HTML, CSS, i18n</li>
@@ -38,51 +57,56 @@
                     <li>Git, GitHub</li>
                 </ul>
             </section>
-             <section>
-                  <h2>Code Example</h2>
-                  <pre>
-                    export const creationAPI = createApi({
-                    reducerPath: "creation",
-                    baseQuery: fetchBaseQuery({
-                        baseUrl: API,
-                        prepareHeaders: (headers, { getState }) =&gt; {
-                        const token = selectJwt(getState());
-                        if (token) {
-                            headers.set("authorization", `Bearer ${token}`);
+            <br>
+            <section  class="code-example" id="code-example">
+                <h2>Code Example</h2>
+                <pre>
+                export const creationAPI = createApi({
+                reducerPath: "creation",
+                baseQuery: fetchBaseQuery({
+                    baseUrl: API,
+                    prepareHeaders: (headers, { getState }) =&gt; {
+                    const token = selectJwt(getState());
+                    if (token) {
+                        headers.set("authorization", `Bearer ${token}`);
+                    }
+                    return headers;
+                    },
+                }),
+                tagTypes: ["creation"],
+                endpoints: (builder) =&gt; ({
+                    getCreations: builder.query({
+                    query: ({ userId, page = 1 } = {}) =&gt; {
+                        let url = `/creations?pagination[page]=${page}&amp;pagination[pageSize]=30&amp;populate[image]=*&amp;sort=publishedAt:desc`;
+                        if (userId) {
+                        url += `&amp;filters[users_permissions_user][id][$eq]=${userId}`;
                         }
-                        return headers;
-                        },
+                        return { url, method: "GET" };
+                    },
+                    providesTags: ["creation"],
                     }),
-                    tagTypes: ["creation"],
-                    endpoints: (builder) =&gt; ({
-                        getCreations: builder.query({
-                        query: ({ userId, page = 1 } = {}) =&gt; {
-                            let url = `/creations?pagination[page]=${page}&amp;pagination[pageSize]=30&amp;populate[image]=*&amp;sort=publishedAt:desc`;
-                            if (userId) {
-                            url += `&amp;filters[users_permissions_user][id][$eq]=${userId}`;
-                            }
-                            return { url, method: "GET" };
-                        },
-                        providesTags: ["creation"],
-                        }),
-                    }),
-                    });
-                </pre>
-             </section>
-             <section>
+                }),
+                });
+            </pre>
+            </section>
+            <br>
+            <section class="education" id="education">
                 <h2>Education</h2>
                 <ul>
                     <li><span>2016 - 2018:</span> Master's degree / Tourism (North-Eastern Federal University, Faculty of Law)</li>
                     <li><span>2012 - 2016:</span> Bachelor's degree / Jurisprudence (North-Eastern Federal University, Faculty of Law)</li>
                 </ul>
-             </section>
-             <section>
+            </section>
+            <br>
+            <section class="languages" id="languages">
                 <h2>Languages</h2>
                 <ul>
                     <li><span>English:</span>Pre-Intermediate</li>
                 </ul>
-             </section>
-        </main>
-    </div>
+            </section>
+            <br>
+        </div>
+    </main>
+    <footer class="footer"><div class="container"></div></footer>
 </body>
 </html>
