@@ -18,6 +18,9 @@ I started programming on my own and now I want to build a strong foundation of k
 * AWS S3, Heroku, Railway
 * Git, GitHub  
 
+## Projects
+* [RS School CV#1. Markdown & Git](https://imbasharikanirum.github.io/rsschool-cv/cv)
+
 ## Code Example
 
 ```
