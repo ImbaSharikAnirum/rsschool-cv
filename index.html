@@ -37,37 +37,44 @@
         </nav>
       </div>
     </header>
-    <main>
-      <div class="container">
-        <section class="profile" id="profile">
-          <h1>Igor Sharin</h1>
+    <main class="main">
+      <div class="container main-container">
+        <section class="profile section" id="profile">
+          <div>
+            <h1>Igor Sharin</h1>
+            <h2>Full Stack Developer</h2>
+          </div>
           <div class="avatar-wrapper">
             <img src="./assets/photo.jpg" alt="Avatar" class="avatar-image" />
           </div>
         </section>
-        <section class="contacts" id="contacts">
+        <section class="section" id="contacts">
           <h2>Contacts</h2>
           <ul>
-            <li><span>Phone:</span>&nbsp;+7(996)-316-38-50</li>
-            <li><span>Email:</span>&nbsp;sharinigor1@gmail.com</li>
+            <li>Phone:&nbsp;+7(996)-316-38-50</li>
+            <li>Email:&nbsp;sharinigor1@gmail.com</li>
             <li>
-              <span>GitHub:</span>&nbsp;<a
+              GitHub:&nbsp;<a
                 href="https://github.com/ImbaSharikAnirum"
                 target="_blank"
                 >https://github.com/ImbaSharikAnirum</a
               >
             </li>
             <li>
-              <span>Linkedin:</span>&nbsp;<a
+              Linkedin:&nbsp;<a
                 href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin"
                 target="_blank"
                 >www.linkedin.com/in/igor-sharin</a
               >
             </li>
-            <li><span>Telegram:</span>&nbsp;@igor_sharin</li>
+            <li>
+              Telegram:&nbsp;<a href="https://t.me/igor_sharin" target="_blank"
+                >@igor_sharin</a
+              >
+            </li>
           </ul>
         </section>
-        <section class="about-me" id="about-me">
+        <section class="section" id="about-me">
           <h2>About Me</h2>
           <p>
             I started programming on my own and now I want to build a strong
@@ -78,7 +85,7 @@
             structures to create efficient solutions.
           </p>
         </section>
-        <section class="skills" id="skills">
+        <section class="section" id="skills">
           <h2>Skills</h2>
           <ul>
             <li>React, Redux, Material UI (MUI), Bootstrap, HTML, CSS, i18n</li>
@@ -88,52 +95,52 @@
             <li>Git, GitHub</li>
           </ul>
         </section>
-        <section class="code-example" id="code-example">
+        <section class="section" id="code-example">
           <h2>Code Example</h2>
           <pre>
-                export const creationAPI = createApi({
-                reducerPath: "creation",
-                baseQuery: fetchBaseQuery({
-                    baseUrl: API,
-                    prepareHeaders: (headers, { getState }) =&gt; {
-                    const token = selectJwt(getState());
-                    if (token) {
-                        headers.set("authorization", `Bearer ${token}`);
-                    }
-                    return headers;
-                    },
-                }),
-                tagTypes: ["creation"],
-                endpoints: (builder) =&gt; ({
-                    getCreations: builder.query({
-                    query: ({ userId, page = 1 } = {}) =&gt; {
-                        let url = `/creations?pagination[page]=${page}&amp;pagination[pageSize]=30&amp;populate[image]=*&amp;sort=publishedAt:desc`;
-                        if (userId) {
-                        url += `&amp;filters[users_permissions_user][id][$eq]=${userId}`;
-                        }
-                        return { url, method: "GET" };
-                    },
-                    providesTags: ["creation"],
-                    }),
-                }),
-                });
+export const creationAPI = createApi({
+reducerPath: "creation",
+baseQuery: fetchBaseQuery({
+    baseUrl: API,
+    prepareHeaders: (headers, { getState }) =&gt; {
+    const token = selectJwt(getState());
+    if (token) {
+        headers.set("authorization", `Bearer ${token}`);
+    }
+    return headers;
+    },
+}),
+tagTypes: ["creation"],
+endpoints: (builder) =&gt; ({
+    getCreations: builder.query({
+    query: ({ userId, page = 1 } = {}) =&gt; {
+        let url = `/creations?pagination[page]=${page}&amp;pagination[pageSize]=30&amp;populate[image]=*&amp;sort=publishedAt:desc`;
+        if (userId) {
+        url += `&amp;filters[users_permissions_user][id][$eq]=${userId}`;
+        }
+        return { url, method: "GET" };
+    },
+    providesTags: ["creation"],
+    }),
+}),
+});
             </pre
           >
         </section>
-        <section class="education" id="education">
+        <section class="section" id="education">
           <h2>Education</h2>
           <ul>
             <li>
-              <span>2016 - 2018:</span> Master's degree / Tourism (North-Eastern
-              Federal University, Faculty of Law)
+              2016 - 2018: Master's degree / Tourism (North-Eastern Federal
+              University, Faculty of Law)
             </li>
             <li>
-              <span>2012 - 2016:</span> Bachelor's degree / Jurisprudence
-              (North-Eastern Federal University, Faculty of Law)
+              2012 - 2016: Bachelor's degree / Jurisprudence (North-Eastern
+              Federal University, Faculty of Law)
             </li>
           </ul>
         </section>
-        <section class="languages" id="languages">
+        <section class="section" id="languages">
           <h2>Languages</h2>
           <ul>
             <li><span>English:</span>Pre-Intermediate</li>
@@ -142,20 +149,32 @@
       </div>
     </main>
     <footer class="footer">
-      <div class="container">
-        <a
-          href="https://rs.school/courses/javascript-ru"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="RS School"
-        >
-          <img
-            src="https://github.com/rolling-scopes-school/tasks/raw/master/tasks/cv/rs-school-logo.svg"
-            alt="RS School Logo"
-            width="100"
-            height="auto"
-          />
-        </a>
+      <div class="footer-container">
+        <div>
+          <a
+            class="footer-link"
+            href="https://github.com/ImbaSharikAnirum"
+            target="_blank"
+            aria-label="GitHub"
+            >Igor Sharin
+          </a>
+        </div>
+        <div>2025</div>
+        <div>
+          <a
+            href="https://rs.school/courses/javascript-ru"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="RS School"
+          >
+            <img
+              src="https://github.com/rolling-scopes-school/tasks/raw/master/tasks/cv/rs-school-logo.svg"
+              alt="RS School Logo"
+              width="100"
+              height="auto"
+            />
+          </a>
+        </div>
       </div>
     </footer>
   </body>
